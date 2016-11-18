@@ -8,11 +8,11 @@ class NanotwitterClient
   end
 
   def find_tweet(id)
-    start("/tweets/#{id}")
+    start("/tweet/#{id}")
   end
 
   def find_user(id)
-    start("/users/#{id}")
+    start("/user/#{id}")
   end
 
   def recent_tweets(tweets)
@@ -24,7 +24,6 @@ class NanotwitterClient
   end
 
   def start (url)
-    byebug
     request = Typhoeus::Request.new(
       "https://biz-nanotwitter.herokuapp.com/api/v1"+url,
       method: :get,
@@ -32,9 +31,10 @@ class NanotwitterClient
 
     request.on_complete do |response|
       if response.success?
-        puts hell yeah
+        puts "hell yeah"
+        return response.body
       elsif response.timed_out?
-        puts aw hell no
+        puts "aw hell no"
       elsif response.code == 0
         puts response.return_message
       else
@@ -43,6 +43,7 @@ class NanotwitterClient
     end
 
     request.run
+
   end
 
 end

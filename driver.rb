@@ -1,5 +1,5 @@
 require_relative 'NanotwitterClient.rb'
 
-puts "Started"
 a=NanotwitterClient.new("client")
-a.find_tweet(1)
+result=a.find_user(10)
+puts result
