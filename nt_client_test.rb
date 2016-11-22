@@ -17,7 +17,7 @@ describe "client library" do
 
 	#goes to route and collects json data to compare
 	def getJson(url)
-		encoded_url = URI.encode("http://localhost:4567/api/v1"+url)
+		encoded_url = URI.encode("https://biz-nanotwitter.herokuapp.com/api/v1"+url)
 		uri = URI.parse(encoded_url)
 		json = Net::HTTP.get(uri)
 	end

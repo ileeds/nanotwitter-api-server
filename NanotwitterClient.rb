@@ -26,10 +26,10 @@ class NanotwitterClient
 
   def start (url)
     request = Typhoeus::Request.new(
-      # "https://biz-nanotwitter.herokuapp.com/api/v1"+url,
-      # method: :get,
-			"http://localhost:4567/api/v1"+url,
+      "https://biz-nanotwitter.herokuapp.com/api/v1"+url,
       method: :get,
+			# "http://localhost:4567/api/v1"+url,
+      # method: :get,
     )
 
     request.on_complete do |response|
