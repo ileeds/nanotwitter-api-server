@@ -8,9 +8,12 @@ GEM
     ethon (0.9.1)
       ffi (>= 1.3.0)
     ffi (1.9.14)
+    minitest (5.9.1)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -29,6 +32,8 @@ PLATFORMS
 DEPENDENCIES
   bunny
   byebug
+  minitest
+  rack-test
   sinatra
   sinatra-base
   typhoeus
