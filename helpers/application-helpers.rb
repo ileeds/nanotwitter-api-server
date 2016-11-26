@@ -2,7 +2,7 @@ require 'typhoeus'
 require 'byebug'
 require 'json'
 
-class NanotwitterClient
+class ApplicationHelpers
   def initialize (name)
     @name = name
   end
@@ -12,7 +12,7 @@ class NanotwitterClient
   end
 
   def find_user(id)
-    start("/user/#{id}")
+    start("/users/#{id}")
   end
 
   def recent_tweets(tweets)
@@ -31,14 +31,13 @@ class NanotwitterClient
 
     request.on_complete do |response|
       if response.success?
-        puts "hell yeah"
         return response.body
       elsif response.timed_out?
-        puts "aw hell no"
+        return "aw hell no"
       elsif response.code == 0
-        puts response.return_message
+        return response.return_message
       else
-        puts "HTTP request failed: " + response.code.to_s
+        return "HTTP request failed: " + response.code.to_s
       end
     end
 
