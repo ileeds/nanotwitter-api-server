@@ -24,7 +24,7 @@ get '/api/v1/users/:id' do
 end
 
 #find tweet
-get '/api/v1/tweet/:id' do
+get '/api/v1/tweets/:id' do
 	#/api/v1/recent/tweets/?count=3
 	return Tweet.find(params[:id]).to_json
 end
