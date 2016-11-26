@@ -3,10 +3,6 @@ require 'byebug'
 require 'json'
 
 class ApplicationHelpers
-  def initialize (name)
-    @name = name
-  end
-
   def find_tweet(id)
     start("/tweet/#{id}")
   end
