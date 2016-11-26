@@ -11,6 +11,8 @@ require './models/like'
 require './models/follow'
 require './models/hashtag'
 
+require_relative 'rpc_server.rb'
+
 get '/' do
   erb :index
 end
