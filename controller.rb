@@ -30,13 +30,13 @@ get '/api/v1/tweet/:id' do
 end
 
 #recent tweets
-get '/api/v1/recent/tweets/:count' do
+get '/api/v1/tweets/recent' do
 	params[:count] ||= 10
 	return Tweet.last(params[:count]).to_json
 end
 
 #get tweets by a single user
-get '/api/v1/users/:id/tweets/:count' do
+get '/api/v1/users/:id/tweets' do
 	Tweet.where(user_id: params[:id]).limit(params[:count]).to_json
 end
 
