@@ -11,10 +11,6 @@ require './models/like'
 require './models/follow'
 require './models/hashtag'
 
-get '/' do
-  erb :index
-end
-
 get '/api/v1/users/:id' do
 	if User.exists?
 		return User.find(params[:id]).to_json(only: [:id, :username, :fname, :lname, :bio])
