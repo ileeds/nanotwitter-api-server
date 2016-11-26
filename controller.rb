@@ -30,7 +30,8 @@ get '/api/v1/tweets/:id' do
 end
 
 #recent tweets
-get '/api/v1/tweets/recent' do
+get '/api/v1/recent/tweets' do
+  byebug
 	params[:count] ||= 10
 	return Tweet.last(params[:count]).to_json
 end

@@ -36,7 +36,7 @@ describe "client library" do
 
 	it "should find recent tweets" do
 		result=@client.recent_tweets(@index)
-		json = getJson("/tweets/recent?#{@index}")
+		json = getJson("/recent/tweets?#{@index}")
 		assert_equal result, json
 	end
 
