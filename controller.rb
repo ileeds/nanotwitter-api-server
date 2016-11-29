@@ -25,19 +25,22 @@ end
 
 #find tweet
 get '/api/v1/tweets/:id' do
-	#/api/v1/recent/tweets/?count=3
 	return Tweet.find(params[:id]).to_json
 end
 
 #recent tweets
 get '/api/v1/recent/tweets' do
-  byebug
-	params[:count] ||= 10
+  if params[:count].to_i>50
+    params[:count]=50
+  end
 	return Tweet.last(params[:count]).to_json
 end
 
 #get tweets by a single user
 get '/api/v1/users/:id/tweets' do
+  if params[:count].to_i>50
+    params[:count]=50
+  end
 	Tweet.where(user_id: params[:id]).limit(params[:count]).to_json
 end
 
